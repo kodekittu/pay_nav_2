@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primaryColor: Colors.redAccent,
         primarySwatch: Colors.blue,
-        accentColor: Colors.amberAccent,
+       // accentColor: Colors.amberAccent,
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: generateRoute,

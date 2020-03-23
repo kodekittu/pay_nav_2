@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paynav2/router.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,13 +9,30 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   final _formkey = GlobalKey<FormState>();
+  final amountController =TextEditingController();
+  String receiver = "Naveen Patnaik";
+  String company = "PAYNAV";
+
+  Future <void> _shoeAlert (BuildContext context){
+    return showDialog(context: context, builder: (BuildContext context) {
+      return AlertDialog(
+        content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Please Enter the Amount!', style: TextStyle(fontWeight: FontWeight.w800, color: Colors.redAccent),),
+              ],
+            )
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     MediaQueryData data = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('PayNav', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.black),)
+        title: Text('PayNav', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.black),textAlign: TextAlign.center,)
         ,elevation: 6,
       ),
       body: Form(
@@ -38,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(6.0),
                     child: Container(
                       height: data.size.height * 0.07,
                       width: data.size.width * 0.85,
@@ -52,19 +70,21 @@ class _HomePageState extends State<HomePage> {
                         elevation: 10,
                         padding: EdgeInsets.all(4),
                         onPressed: (){
-
+                          setState(() {
+                            receiver = "Naveen Patnaik";
+                          });
                         },
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(6.0),
                     child: Container(
                       height: data.size.height * 0.07,
                       width: data.size.width * 0.85,
                       child: RaisedButton(
                         color: Theme.of(context).primaryColor,
-                        child: Text('Naveen Patnaik',
+                        child: Text('Rahul Sundar',
                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,)
                         ),
                         focusColor: Theme.of(context).primaryColor,
@@ -72,19 +92,21 @@ class _HomePageState extends State<HomePage> {
                         elevation: 10,
                         padding: EdgeInsets.all(4),
                         onPressed: (){
-
+                          setState(() {
+                            receiver = "Rahul Sundar";
+                          });
                         },
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(6.0),
                     child: Container(
                       height: data.size.height * 0.07,
                       width: data.size.width * 0.85,
                       child: RaisedButton(
                         color: Theme.of(context).primaryColor,
-                        child: Text('Naveen Patnaik',
+                        child: Text('Nikhil Arora',
                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,)
                         ),
                         focusColor: Theme.of(context).primaryColor,
@@ -92,19 +114,21 @@ class _HomePageState extends State<HomePage> {
                         elevation: 10,
                         padding: EdgeInsets.all(4),
                         onPressed: (){
-
+                          setState(() {
+                            receiver = "Nikhil Arora";
+                          });
                         },
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(6.0),
                     child: Container(
                       height: data.size.height * 0.07,
                       width: data.size.width * 0.85,
                       child: RaisedButton(
                         color: Theme.of(context).primaryColor,
-                        child: Text('Naveen Patnaik',
+                        child: Text('Kurmanadh Valla',
                             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,)
                         ),
                         focusColor: Theme.of(context).primaryColor,
@@ -112,7 +136,9 @@ class _HomePageState extends State<HomePage> {
                         elevation: 10,
                         padding: EdgeInsets.all(4),
                         onPressed: (){
-
+                          setState(() {
+                            receiver = "Kurmanadh Valla";
+                          });
                         },
                       ),
                     ),
@@ -130,11 +156,64 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           height: data.size.height * 0.05,
                           width: data.size.width * 0.52,
+                          padding: EdgeInsets.only(left: 6, right: 6),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(color: Colors.grey,)
+                          ),
+                            child: Center(child: Text(company,
+                              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)
+                              ,)
+                            )
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 18, left: 25),
+                    child: Row(
+                      children: <Widget>[
+                        Container(alignment: Alignment.topLeft,
+                            padding: EdgeInsets.only(right: 12),
+                            child: Text('RECEIVER :',
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,))
+                        ),
+                        Container(
+                          height: data.size.height * 0.05,
+                          width: data.size.width * 0.52,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(color: Colors.grey,)
+                          ),
+                          child: Center(child: Text(receiver,
+                            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)
+                            ,)
+                          )
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 18, left: 25),
+                    child: Row(
+                      children: <Widget>[
+                        Container(alignment: Alignment.topLeft,
+                            padding: EdgeInsets.only(right: 17),
+                            child: Text('AMOUNT :',
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,))
+                        ),
+                        Container(
+                          height: data.size.height * 0.05,
+                          width: data.size.width * 0.52,
+                          padding: EdgeInsets.only(left: 6, right: 6,),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               border: Border.all(color: Colors.grey,)
                           ),
                           child: TextFormField(
+                            controller: amountController,
+                          //  validator: (value) => value.isEmpty ? "Please enter amount" : null,
+                            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
                             decoration: InputDecoration(
                               hasFloatingPlaceholder: true,
                             ),
@@ -145,23 +224,53 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 18, left: 25),
-                    child: Container(alignment: Alignment.topLeft,
-                        child: Text('RECEIVER :',
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,))
+                    child: Row(
+                      children: <Widget>[
+                        Container(alignment: Alignment.topLeft,
+                            padding: EdgeInsets.only(right: 11),
+                            child: Text('MESSAGE :',
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,))
+                        ),
+                        Container(
+                          height: data.size.height * 0.05,
+                          width: data.size.width * 0.52,
+                          padding: EdgeInsets.only(left: 6, right: 6),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(color: Colors.grey,)
+                          ),
+                          child: TextFormField(
+                            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+                            decoration: InputDecoration(
+                              hasFloatingPlaceholder: true,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 18, left: 25),
-                    child: Container(alignment: Alignment.topLeft,
-                        child: Text('AMOUNT :',
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,))
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 18, left: 25),
-                    child: Container(alignment: Alignment.topLeft,
-                        child: Text('MESSAGE :',
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,))
+                    padding: const EdgeInsets.all(12.0),
+                    child: Container(
+                      height: data.size.height * 0.07,
+                      width: data.size.width * 0.85,
+                      child: RaisedButton(
+                        color: Theme.of(context).primaryColor,
+                        child: Text('PAY NAV',
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,)
+                        ),
+                        focusColor: Theme.of(context).primaryColor,
+                        splashColor: Theme.of(context).accentColor,
+                        elevation: 10,
+                        padding: EdgeInsets.all(4),
+                        onPressed: () async {
+                            if(amountController.text != null){
+                              Navigator.pushNamed(context, payRoute);
+                            }else{
+                              _shoeAlert(context);
+                            }
+                        },
+                      ),
                     ),
                   ),
               ],),
