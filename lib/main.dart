@@ -10,8 +10,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PayNav',
       theme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.redAccent,
+        brightness: Brightness.light,
+        primaryColor: Colors.lightGreenAccent,
         primarySwatch: Colors.blue,
        // accentColor: Colors.amberAccent,
       ),

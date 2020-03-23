@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         focusColor: Theme.of(context).primaryColor,
                         splashColor: Theme.of(context).accentColor,
-                        elevation: 10,
+                        elevation: 4,
                         padding: EdgeInsets.all(4),
                         onPressed: (){
                           setState(() {
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         focusColor: Theme.of(context).primaryColor,
                         splashColor: Theme.of(context).accentColor,
-                        elevation: 10,
+                        elevation: 4,
                         padding: EdgeInsets.all(4),
                         onPressed: (){
                           setState(() {
@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         focusColor: Theme.of(context).primaryColor,
                         splashColor: Theme.of(context).accentColor,
-                        elevation: 10,
+                        elevation: 4,
                         padding: EdgeInsets.all(4),
                         onPressed: (){
                           setState(() {
@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         focusColor: Theme.of(context).primaryColor,
                         splashColor: Theme.of(context).accentColor,
-                        elevation: 10,
+                        elevation: 4,
                         padding: EdgeInsets.all(4),
                         onPressed: (){
                           setState(() {
